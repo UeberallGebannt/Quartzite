@@ -1,4 +1,4 @@
-Contributing to Travertine
+Contributing to Quartzite/Travertine
 ==========================
 WaterfallMC has a very lenient policy towards PRs, but would prefer that you try and adhere to the following guidelines.
 

@@ -1,7 +1,7 @@
-Travertine
+Quartzite
 =========
 
-Travertine is Waterfall with additional protocols. Waterfall is a fork of the well-known [BungeeCord](https://github.com/SpigotMC/BungeeCord) server teleportation suite.
+Quartzite is Travertine with but with some new features. [Travertine](https://github.com/PaperMC/Travertine/) is Waterfall with additional protocols. [Waterfall](https://github.com/PaperMC/Waterfall/) is a fork of the well-known [BungeeCord](https://github.com/SpigotMC/BungeeCord) server teleportation suite.
 
 Waterfall focuses on three main areas:
 
