@@ -1,0 +1,37 @@
+From f64d6f8b860007df45eaf9c0f48279d4299ddbe7 Mon Sep 17 00:00:00 2001
+From: UeberallGebannt <paulmertens63@gmail.com>
+Date: Thu, 13 May 2021 17:47:27 +0200
+Subject: [PATCH] Split multi-line messages for 1.7 support
+
+
+diff --git a/proxy/src/main/java/net/md_5/bungee/UserConnection.java b/proxy/src/main/java/net/md_5/bungee/UserConnection.java
+index 96df0175..fa31fb7f 100644
+--- a/proxy/src/main/java/net/md_5/bungee/UserConnection.java
++++ b/proxy/src/main/java/net/md_5/bungee/UserConnection.java
+@@ -470,6 +470,23 @@ public final class UserConnection implements ProxiedPlayer
+     @Override
+     public void sendMessage(ChatMessageType position, BaseComponent... message)
+     {
++        // Quartzite start - Split multi-line messages for 1.7 support
++        if ( getPendingConnection().getVersion() <= ProtocolConstants.MINECRAFT_1_7_6 )
++        {
++            StringBuilder builder = new StringBuilder();
++            for ( BaseComponent baseComponent : message )
++            {
++                builder.append( baseComponent.toLegacyText() );
++            }
++            String[] messages = builder.toString().split( "\\r?\\n" );
++            for (String msg : messages)
++            {
++                sendMessage( position, null, TextComponent.fromLegacyText( msg ) );
++            }
++            return;
++        }
++        // Quartzite end
++
+         sendMessage( position, null, message );
+     }
+ 
+-- 
+2.26.2.windows.1
+
