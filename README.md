@@ -1,3 +1,5 @@
+# Outdated. Use Waterfall or Velocity (if you need 1.7).
+
 Quartzite
 =========
 
